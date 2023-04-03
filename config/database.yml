@@ -1,0 +1,24 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: 953915
+  host: 127.0.0.1
+
+development:
+  <<: *default
+  database: Blog_api_development
+
+test:
+  <<: *default
+  database: Blog_api_test
+
+#     url: <%= ENV["MY_APP_DATABASE_URL"] %>
+
+production:
+  <<: *default
+  database: Blog_api_production
+  username: Blog_api
+  password: <%= ENV["BLOG_API_DATABASE_PASSWORD"] %>
